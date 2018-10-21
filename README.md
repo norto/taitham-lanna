@@ -1,2 +1,2 @@
 # taitham-lanna
-Tai Tham font : Monoline sans serif font with modern Lanna aesthetics
+Tai Tham font : Monoline sans serif font for Tai Tham script with modern Lanna aesthetics
