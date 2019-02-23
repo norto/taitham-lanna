@@ -13,6 +13,8 @@ Well, as a native of this language and the script, I feel obliged a bit to prese
 
 I name the font as **"Tahlom"** following the name of an anmaranth flower in Lanna language which has a round shape similar to the shape of the . The world *"Ta-lom"* or *"Tom-lom"* also mean "round" or "spherical" in Lanna langauge.
 
+<img scr="images/Tahlom_example2.png">
+
 ## Fakkham script
 During summer 2018, I also create another ancient script used in Lanna which is called "Fakkham script". I name it **"Somphoa"** following the name of a peacock flower in Lanna langauge.
 
@@ -20,3 +22,5 @@ Fakkham script is the script used alongside with tai tham script in ancient Lann
 The script itself is based on Sukhothai version of Thai script. 
 Thus, we can say that Fakkahm script is a Lanna version of Thai script.
 Whilst being so similar to modern Thai script, spelling system of Fakkham script preserves lots of ancient feature of Thai script.
+
+<img scr="images/Somphoa-3.png">
