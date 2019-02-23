@@ -1,4 +1,4 @@
-# The Lanna font project (or hobby)
+# The Lanna font project
 
 Hi there, my name is Norraseth, from Northern Thailand. Personally, developing a font for tai tham script has been my hobby scine 2017. So, yes, hobby means I am really an amateur in this 'font' and 'coding' thing. But at the end of the day, I can achieve to produce 2 fonts for 2 scripts (each).
 Still not so perfect, but I think it's a good start to publish them in github (as my friend suggested). I would be greatful if the real expert could help improving these scripts (especially the opentype feature)
