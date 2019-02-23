@@ -23,4 +23,4 @@ The script itself is based on Sukhothai version of Thai script.
 Thus, we can say that Fakkahm script is a Lanna version of Thai script.
 Whilst being so similar to modern Thai script, spelling system of Fakkham script preserves lots of ancient feature of Thai script.
 
-<img src="images/Somphoa-1.PNG">
+<img src="images/Sompoa-1.PNG">
