@@ -3,7 +3,7 @@
 
 * **NS-Somphoa-3.3_for-use.ttf** = shipped font for installing and use
 
-* **NS-Somphoa-3.3_Opentype-code.ttf** = unshipped font, contain edible opentype feature (using MS VOLT)
+* **NS-Somphoa-3.3_Opentype-code.ttf** = unshipped font, contain editable opentype feature (using MS VOLT)
 
 <img src="/images/Sompoa-1.PNG" width="800">
 
