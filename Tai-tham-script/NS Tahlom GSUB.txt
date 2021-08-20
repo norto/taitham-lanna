@@ -1,0 +1,460 @@
+
+# Glyph Classes
+
+@Letter = [uni1A20 uni1A21 uni1A22 uni1A23 uni1A24 uni1A25 uni1A26 uni1A27 uni1A28 uni1A29 uni1A2A uni1A2B uni1A2C uni1A2D uni1A2E uni1A2F uni1A30 uni1A31 uni1A32 uni1A33 uni1A34 uni1A35 uni1A36 uni1A37 uni1A38 uni1A39 uni1A3A uni1A3B uni1A3C uni1A3D uni1A3E uni1A3F uni1A40 uni1A41 uni1A42 uni1A43 uni1A44 uni1A45 uni1A46 uni1A47 uni1A48 uni1A49 uni1A4A uni1A4B uni1A4C uni1A4D uni1A4E uni1A4F uni1A50 uni1A51 uni1A52 uni1A53 uni1A54 uni1A63 uni1A64 uni1A2C.1A2C uni1A2C.1A2C.alt uni1A21.1A5B uni1A22.1A5B uni1A26.1A5B uni1A29.1A5B uni1A2A.1A5B uni1A36.1A5B uni1A36.1A63 uni1A36.1A63.1A5B uni1A3E.1A5B uni1A47.1A5B uni1A4B.1A5B uni1A52.1A5B uni1A36.1A63.1A74 uni1A4A.1A49 uni1A2F.1A5B uni1A2F.1A6A.1A55 uni1A36.1A75.1A63 uni1A36.1A76.1A63 uni1A36.1A75.1A63.1A74 uni1A36.1A76.1A63.1A74 ]
+
+
+@belowbase = [uni1A20.blw uni1A21.blw uni1A22.blw uni1A23.blw uni1A24.blw  uni1A26.blw uni1A27.blw uni1A28.blw uni1A29.blw uni1A2A.blw  uni1A2D.blw uni1A2E.blw uni1A2F.blw uni1A31.blw uni1A32.blw uni1A33.blw uni1A34.blw uni1A35.blw uni1A36.blw uni1A3A.blw uni1A3B.blw uni1A3C.blw uni1A3D.blw uni1A3E.blw uni1A41.blw uni1A42.blw uni1A44.blw uni1A45.blw uni1A46.blw uni1A49.blw uni1A4A.blw uni1A4B.blw uni1A4C.blw uni1A4D.blw uni1A4E.blw uni1A4F.blw uni1A50.blw uni1A51.blw uni1A53.blw uni1A54.blw uni1A4D.blw uni1A4E.blw uni1A4F.blw uni1A50.blw uni1A51.blw uni1A53.blw uni1A54.blw uni1A36.blw.alt uni1A3E.blw.alt uni1A45.blw.001 uni1A60 must not be included as mark
+uni1A56 uni1A5B uni1A5C uni1A5D uni1A5E uni1A69 uni1A6A uni1A6C uni1A7F uni1A36.blw.alt uni1A3E.blw.alt]
+
+@postbase = [uni1A25.blw uni1A2B.blw uni1A2C.blw uni1A30.blw uni1A37.blw uni1A38.blw uni1A39.blw uni1A3F.blw uni1A40.blw uni1A43.blw uni1A47.blw uni1A48.blw uni1A57 uni1A6D]
+
+@haang = [uni1A2B uni1A2E uni1A4A uni1A4C uni1A2B.alt uni1A2E.alt uni1A4A.alt uni1A4C.alt]
+
+@haang_nya = [uni1A2C uni1A2C.alt uni1A2C.1A2C uni1A2C.1A2C.alt]
+
+@abovebase = [uni1A58 uni1A59 uni1A5A uni1A62 uni1A65 uni1A66 uni1A67 uni1A68 uni1A6B uni1A73 uni1A74 uni1A75 uni1A76 uni1A77 uni1A78 uni1A79 uni1A7A uni1A7B uni1A7C uni1A62.1A75 uni1A62.1A76]
+
+
+# ------- GSUB -----------
+
+# ------- 1. Access all alternate -------------------
+
+feature aalt{ 
+	feature pref;
+	feature rphf;
+	feature calt;
+} aalt;
+
+
+# ------- 2. Standard ligature ------------------------
+
+feature liga {
+
+# liga fixing sakot not working in some case, double stack after prebase form e.g. ᨶ ᩯ  ᩠ ᩅ
+
+# ligature nya-nya and na-nya
+lookup nya_nya_liga {
+sub uni1A31 uni1A60 uni1A2C by uni1A2C.1A2C; # ᨱ ᨬ
+sub uni1A2C uni1A60 uni1A2C by uni1A2C.1A2C; # ᨬ ᨬ
+} nya_nya_liga;
+
+# ligature du-ra // special case that 1A55 follow 1A6A which is not allowed by USE. Thus a specific glyph is to be created.
+lookup dura_liga {
+sub uni1A2F uni1A6A uni1A55 by uni1A2F.1A6A.1A55; # ᨯ  ᩪ  ᩕ  ᩣ
+} dura_liga;
+
+# lla + ha ligature preceeds other belowbase ligature
+lookup lla_ha_liga { 
+sub uni1A4A uni1A60 uni1A49 by uni1A4A.1A49;
+} lla_ha_liga;
+
+# ----- Punctuation
+lookup punctua_danda {
+sub uni1AA8 uni1AA8 by uni1AA9;
+sub uni1AAA uni1AAA by uni1AAB;
+} punctua_danda;
+
+# for rendering in Google Chrome, it needs more code as 25CC dot is inserted.
+# This comes befor lookup sara-am
+lookup liga_naa_ext {
+#ignore sub uni1A36' uni1A63' uni25CC' uni1A5B' ;
+# with 25CC removal, for web/chrome shaping
+	sub uni1A36' uni1A75' uni25CC' uni1A63' uni1A74' by uni1A36.1A75.1A63.1A74;
+	sub uni1A36' uni1A76' uni25CC' uni1A63' uni1A74' by uni1A36.1A76.1A63.1A74;
+	sub uni1A36' uni1A63' uni25CC' uni1A74' by uni1A36.1A63.1A74;
+	sub uni1A36' uni1A75' uni25CC' uni1A63' by uni1A36.1A75.1A63;
+	sub uni1A36' uni1A76' uni25CC' uni1A63' by uni1A36.1A76.1A63;
+# for MacOS shaping
+	sub uni1A36' uni1A75' uni1A63' uni1A74' by uni1A36.1A75.1A63.1A74;
+	sub uni1A36' uni1A76' uni1A63' uni1A74' by uni1A36.1A76.1A63.1A74;
+	#sub uni1A36' uni1A63' uni1A74' by uni1A36.1A63.1A74;
+	#sub uni1A36' uni1A75' uni1A63' by uni1A36.1A75.1A63;
+	#sub uni1A36' uni1A76' uni1A63' by uni1A36.1A76.1A63;
+} liga_naa_ext;
+
+# -------- sara-am
+lookup sara-am {
+ignore sub uni1A36' uni1A63' uni1A74';
+# sara am
+sub uni1A63' uni1A74' by uni1A63.1A74;
+sub uni1A64' uni1A74' by uni1A64.1A74;
+# tone-1 sara-am
+sub uni1A75' uni1A63' uni1A74' by uni1A63.1A74.1A75;
+sub uni1A75' uni1A64' uni1A74' by uni1A64.1A74.1A75;
+# tone-2 sara-am
+sub uni1A76' uni1A63' uni1A74' by uni1A63.1A74.1A76;
+sub uni1A76' uni1A64' uni1A74' by uni1A64.1A74.1A76;
+} sara-am;
+
+# ------ Mai-sam aa long
+lookup maisam_aa {
+# mai sam
+sub uni1A7B uni1A64 by uni1A64.1A7B; 
+# tone-1 mai sam
+sub uni1A75 uni1A7B uni1A64 by uni1A64.1A75.1A7B;  
+# tone-2 mai sam
+sub uni1A76 uni1A7B uni1A64 by uni1A64.1A76.1A7B;
+} maisam_aa ;
+
+
+# ---- abovebase section ----
+# tone marks
+lookup tone_mark {
+	sub uni1A62 uni1A75 by uni1A62.1A75;
+	sub uni1A62 uni1A76 by uni1A62.1A76;
+} tone_mark;
+
+# pali sara-i + nikkahit
+lookup pali_ing_liga {
+	sub uni1A65 uni1A74 by uni1A67;
+} pali_ing_liga;
+
+
+# Zone for lookup flags ------------------
+
+# ligature uy uuy ub uuy
+lookup uyub_liga {
+lookupflag UseMarkFilteringSet @belowbase;
+# ba
+sub uni1A69 uni25CC uni1A60 [uni1A37 uni1A38] by uni1A37.blw.1A69; #  ᩩ ᨷ
+sub uni1A6A uni25CC uni1A60 [uni1A37 uni1A38] by uni1A37.blw.1A6A; #
+sub uni1A69 uni1A60 [uni1A37 uni1A38] by uni1A37.blw.1A69; #  ᩩ ᨷ
+sub uni1A6A uni1A60 [uni1A37 uni1A38] by uni1A37.blw.1A6A; #
+# ya
+sub uni1A69 uni25CC uni1A60 uni1A3F by uni1A3F.blw.1A69;
+sub uni1A6A uni25CC uni1A60 uni1A3F by uni1A3F.blw.1A6A;
+sub uni1A69 uni1A60 uni1A3F by uni1A3F.blw.1A69;
+sub uni1A6A uni1A60 uni1A3F by uni1A3F.blw.1A6A;
+} uyub_liga;
+
+# ---- haang_pa
+lookup haang_pa {
+lookupflag UseMarkFilteringSet @belowbase;
+# uni25CC removal
+sub uni1A21 uni25CC uni1A5B by uni1A21.1A5B;
+sub uni1A22 uni25CC uni1A5B by uni1A22.1A5B;
+sub uni1A26 uni25CC uni1A5B by uni1A26.1A5B;
+sub uni1A29 uni25CC uni1A5B by uni1A29.1A5B;
+sub uni1A2A uni25CC uni1A5B by uni1A2A.1A5B;
+sub uni1A2F uni25CC uni1A5B by uni1A2F.1A5B;
+sub uni1A36 uni25CC uni1A5B by uni1A36.1A5B;
+sub uni1A3E uni25CC uni1A5B by uni1A3E.1A5B;
+sub uni1A47 uni25CC uni1A5B by uni1A47.1A5B;
+sub uni1A4B uni25CC uni1A5B by uni1A4B.1A5B;
+sub uni1A52 uni25CC uni1A5B by uni1A52.1A5B;
+sub uni1A36 uni1A63 uni25CC uni1A5B by uni1A36.1A63.1A5B; # naa chrome ext, 25CC removal
+
+# normal
+sub uni1A21 uni1A5B by uni1A21.1A5B;
+sub uni1A22 uni1A5B by uni1A22.1A5B;
+sub uni1A26 uni1A5B by uni1A26.1A5B;
+sub uni1A29 uni1A5B by uni1A29.1A5B;
+sub uni1A2A uni1A5B by uni1A2A.1A5B;
+sub uni1A2F uni1A5B by uni1A2F.1A5B;
+sub uni1A36 uni1A5B by uni1A36.1A5B;
+sub uni1A3E uni1A5B by uni1A3E.1A5B;
+sub uni1A47 uni1A5B by uni1A47.1A5B;
+sub uni1A4B uni1A5B by uni1A4B.1A5B;
+sub uni1A52 uni1A5B by uni1A52.1A5B;
+sub uni1A36 uni1A63 uni1A5B by uni1A36.1A63.1A5B; # naa
+} haang_pa;
+
+# first stack - liga is for final consonant
+lookup firststack {
+lookupflag UseMarkFilteringSet @belowbase;
+
+## part 2 - normal ligature
+# wak ka
+sub uni1A60 uni1A20 by uni1A20.blw;
+sub uni1A60 uni1A21 by uni1A21.blw;
+sub uni1A60 uni1A22 by uni1A22.blw;
+sub uni1A60 uni1A23 by uni1A23.blw;
+sub uni1A60 uni1A24 by uni1A24.blw;
+sub uni1A60 uni1A25 by uni1A25.blw;
+sub uni1A60 uni1A26 by uni1A26.blw;
+
+# wak cha
+sub uni1A60 uni1A27 by uni1A27.blw;
+sub uni1A60 uni1A28 by uni1A28.blw;
+sub uni1A60 uni1A29 by uni1A29.blw;
+sub uni1A60 uni1A2A by uni1A2A.blw;
+sub uni1A60 uni1A2B by uni1A2B.blw;
+sub uni1A60 uni1A2C by uni1A2C.blw;
+
+# wak rata
+sub uni1A60 uni1A2D by uni1A2D.blw;
+sub uni1A60 uni1A2E by uni1A2E.blw;
+sub uni1A60 uni1A2F by uni1A2F.blw;
+sub uni1A60 uni1A30 by uni1A30.blw;
+sub uni1A60 uni1A31 by uni1A31.blw;
+
+# wak ta
+sub uni1A60 uni1A32 by uni1A32.blw;
+sub uni1A60 uni1A33 by uni1A33.blw;
+sub uni1A60 uni1A34 by uni1A34.blw;
+sub uni1A60 uni1A35 by uni1A35.blw;
+sub uni1A60 uni1A36 by uni1A36.blw;
+
+# wak pa
+sub uni1A60 uni1A37 by uni1A37.blw;
+sub uni1A60 uni1A38 by uni1A38.blw;
+sub uni1A60 uni1A39 by uni1A39.blw;
+sub uni1A60 uni1A3A by uni1A3A.blw;
+sub uni1A60 uni1A3B by uni1A3B.blw;
+sub uni1A60 uni1A3C by uni1A3C.blw;
+sub uni1A60 uni1A3D by uni1A3D.blw;
+sub uni1A60 uni1A3E by uni1A3E.blw;
+
+# awak
+sub uni1A60 uni1A3F by uni1A3F.blw;
+#sub uni1A60 uni1A40 by uni1A40.blw;
+sub uni1A60 uni1A41 by uni1A41.blw;
+sub uni1A60 uni1A42 by uni1A42.blw;
+sub uni1A60 uni1A43 by uni1A43.blw;
+sub uni1A60 uni1A44 by uni1A44.blw;
+sub uni1A60 uni1A45 by uni1A45.blw;
+sub uni1A60 uni1A46 by uni1A46.blw;
+sub uni1A60 uni1A47 by uni1A47.blw;
+sub uni1A60 uni1A48 by uni1A48.blw;
+sub uni1A60 uni1A49 by uni1A49.blw;
+sub uni1A60 uni1A4A by uni1A4A.blw;
+# sub uni1A60 uni1A4B by uni1A6C; # sing ow below
+sub uni1A60 uni1A4C by uni1A4C.blw;
+
+# sara loi
+sub uni1A60 uni1A4D by uni1A4D.blw;
+sub uni1A60 uni1A4E by uni1A4E.blw;
+sub uni1A60 uni1A4F by uni1A4F.blw;
+sub uni1A60 uni1A50 by uni1A50.blw;
+sub uni1A60 uni1A51 by uni1A51.blw;
+sub uni1A60 uni1A53 by uni1A53.blw;
+sub uni1A60 uni1A54 by uni1A54.blw;
+
+} firststack;
+
+# lookup flag comes the last, because it affects all the lookups thereafter
+
+# ------ naa ligature -------
+
+lookup liga_naa {
+	lookupflag IgnoreMarks;
+	sub uni1A36 uni1A63 by uni1A36.1A63; # ᨶ ᩣ
+} liga_naa;
+
+
+
+} liga;
+
+
+# ------- 3. Glyph composition ------------------------
+
+feature ccmp {
+
+# using ccmp rather than rlig because ccmp prefers the encoding "base uni1A60 belowbase prebafers "base prebaseuni1A60 belowbase" -- for consonant clester before prebase vowel e.g. ᨤ᩠ᩅ ᩯ in contrast to ᨤ ᩯ ᩅ
+
+#lookup secondstack;
+
+#preserved only of consonant cluster
+
+lookup nya_nya_liga;
+lookup lla_ha_liga;
+
+# for rendering in Google Chrome, it needs more code.
+lookup liga_naa_ext;
+
+# Lookup flag zone
+lookup uyub_liga; # Chrome extension
+lookup haang_pa;
+lookup firststack; 
+lookup liga_naa;
+
+
+} ccmp ;
+
+
+# ------- 4. Pre-base Forms ----------------------------
+
+feature pref {
+
+# fix rawrong positioning in default lana rendering
+# It comes after dura ligature in liga
+
+lookup rawong {
+	sub uni1A55 by uni1A55;
+} rawong;
+
+} pref ;
+
+
+# ------- 5. Reph Forms --------------------------------
+
+feature rphf {
+
+# it doesn't work for now (2021) so we wait for future shaping engine (that will arrive in 2050?)
+
+lookup kanglai {
+	sub uni1A58 by uni1A58;
+} kanglai ;
+
+} rphf ;
+
+
+# ------- 6. Contextual alternates ---------------------
+
+feature calt {
+
+# --------------------- Category 1 --- 25CC dot deletion -- must come first above all alternate form to prevent 25CC to be automatically insert and disrupt the contexual order
+
+# fix unwanted uni25CC globally (but preseve dot after prebase form) - delete dot after
+lookup delete_dot {
+sub [@abovebase @belowbase @postbase] uni25CC' by NULL; # globally
+} delete_dot;
+
+# fix unwanted uni25CC dot for spacing vowel (sara a) - specific case - delete dot before
+lookup delete_dot_aa {
+sub uni25CC' [uni1A63 uni1A64] by NULL;
+} delete_dot_aa;
+
+# for 25CC dot before some prebase or postbase form
+lookup delete_dot_sign {
+sub @Letter uni25CC' [uni1A56 uni1A57 uni1A58 uni1A59 uni1A5A uni1A5B uni1A5C uni1A5D uni1A5E uni1A69 uni1A6A uni1A6C uni1A7F] by NULL; 
+} delete_dot_sign;
+
+
+# -------------------- category 2 ------------- change base (or belowbase) after belowbase, shorten haang
+
+# nya with below form
+lookup nya_short_haang {
+# nya-nya ligature 1A2C.1A2C, come first
+sub uni1A2C.1A2C' @belowbase by uni1A2C.1A2C.alt;
+sub uni1A2C.1A2C' @abovebase @belowbase by uni1A2C.1A2C.alt;
+sub uni1A2C.1A2C' @abovebase @abovebase @belowbase by uni1A2C.1A2C.alt;
+sub uni1A2C.1A2C' @abovebase @abovebase @abovebase @belowbase by uni1A2C.1A2C.alt; 
+# nya 1A2C
+sub uni1A2C' @belowbase by uni1A2C.alt;
+sub uni1A2C' @abovebase @belowbase by uni1A2C.alt;
+sub uni1A2C' @abovebase @abovebase @belowbase by uni1A2C.alt;
+sub uni1A2C' @abovebase @abovebase @abovebase @belowbase by uni1A2C.alt;
+} nya_short_haang ;
+
+# glyph with descending ᨫ ᨮ ᩊ ᩌ alternate with both belowbase and abovebase
+lookup haang {
+
+# no abovebase
+sub uni1A2B' @belowbase by uni1A2B.alt;
+sub uni1A2E' @belowbase by uni1A2E.alt;
+sub uni1A4A' @belowbase by uni1A4A.alt;
+sub uni1A4C' @belowbase by uni1A4C.alt;
+
+# 1 abovebase
+sub uni1A2B' @abovebase @belowbase by uni1A2B.alt;
+sub uni1A2E' @abovebase @belowbase by uni1A2E.alt;
+sub uni1A4A' @abovebase @belowbase by uni1A4A.alt;
+sub uni1A4C' @abovebase @belowbase by uni1A4C.alt;
+
+# 2 abovebase
+sub uni1A2B' @abovebase @abovebase @belowbase by uni1A2B.alt;
+sub uni1A2E' @abovebase @abovebase @belowbase by uni1A2E.alt;
+sub uni1A4A' @abovebase @abovebase @belowbase by uni1A4A.alt;
+sub uni1A4C' @abovebase @abovebase @belowbase by uni1A4C.alt;
+
+# 3 abovebase
+sub uni1A2B' @abovebase @abovebase @abovebase @belowbase by uni1A2B.alt;
+sub uni1A2E' @abovebase @abovebase @abovebase @belowbase by uni1A2E.alt;
+sub uni1A4A' @abovebase @abovebase @abovebase @belowbase by uni1A4A.alt;
+sub uni1A4C' @abovebase @abovebase @abovebase @belowbase by uni1A4C.alt;
+} haang;
+
+
+# -----------  category 3 --------------------- chagne belowbase, depending on the following glyph
+# na and ma belowbase form substitution
+lookup na_ma_sub {
+
+# context before
+sub @haang uni1A36.blw' by uni1A36.blw.alt;
+sub @haang uni1A3E.blw' by uni1A3E.blw.alt;
+
+sub @haang @abovebase uni1A36.blw' by uni1A36.blw.alt;
+sub @haang @abovebase uni1A3E.blw' by uni1A3E.blw.alt;
+
+sub @haang @abovebase @abovebase uni1A36.blw' by uni1A36.blw.alt;
+sub @haang @abovebase @abovebase uni1A3E.blw' by uni1A3E.blw.alt;
+
+sub @haang @abovebase @abovebase @abovebase uni1A36.blw' by uni1A36.blw.alt;
+sub @haang @abovebase @abovebase @abovebase uni1A3E.blw' by uni1A3E.blw.alt;
+
+# context after
+# no abovebase
+sub uni1A36.blw' [@belowbase @postbase] by uni1A36.blw.alt;
+sub uni1A3E.blw' [@belowbase @postbase] by uni1A3E.blw.alt;
+# 1 abovebase
+sub uni1A36.blw' @abovebase [@belowbase @postbase] by uni1A36.blw.alt;
+sub uni1A3E.blw' @abovebase [@belowbase @postbase] by uni1A3E.blw.alt;
+# 2 abovebase
+sub uni1A36.blw' @abovebase @abovebase [@belowbase @postbase] by uni1A36.blw.alt;
+sub uni1A3E.blw' @abovebase @abovebase [@belowbase @postbase] by uni1A3E.blw.alt;
+# 3 abovebase
+sub uni1A36.blw' @abovebase @abovebase @abovebase [@belowbase @postbase] by uni1A36.blw.alt;
+sub uni1A3E.blw' @abovebase @abovebase @abovebase [@belowbase @postbase] by uni1A3E.blw.alt;
+} na_ma_sub ;
+
+# second stack wa - after deleting dot to be effective with abovebase, because it does not involve base glyph, the abovebase form is added automatically by 25CC. To allow the substituttion to work properly, we must delete 25CC before the substitution 
+lookup secondstack_wa {
+sub [@belowbase @postbase @haang] uni1A45.blw' by uni1A45.blw.001;
+sub [@belowbase @postbase @haang] @abovebase uni1A45.blw' by uni1A45.blw.001;
+sub [@belowbase @postbase @haang] @abovebase @abovebase uni1A45.blw' by uni1A45.blw.001;
+sub [@belowbase @postbase @haang] @abovebase @abovebase @abovebase uni1A45.blw' by uni1A45.blw.001;
+} secondstack_wa;
+
+# second stack sara-u
+lookup secondstack_u {
+# Sara-u
+sub [@belowbase @postbase @haang] uni1A69' by uni1A69.alt;
+sub [@belowbase @postbase @haang] @abovebase uni1A69' by uni1A69.alt;
+sub [@belowbase @postbase @haang] @abovebase @abovebase uni1A69' by uni1A69.alt;
+sub [@belowbase @postbase @haang] @abovebase @abovebase @abovebase uni1A69' by uni1A69.alt;
+# Sara-uu
+sub [@belowbase @postbase @haang] uni1A6A' by uni1A6A.alt;
+sub [@belowbase @postbase @haang] @abovebase uni1A6A' by uni1A6A.alt;
+sub [@belowbase @postbase @haang] @abovebase @abovebase uni1A6A' by uni1A6A.alt;
+sub [@belowbase @postbase @haang] @abovebase @abovebase @abovebase uni1A6A' by uni1A69.alt;
+} secondstack_u;
+
+
+# --------------------- category 4 --- change postbase form after another postbase (with or without abovebase form inbetween) depending on the prior glyph
+
+# haang ya sub after belowbase - after deleting dot to be effective with abovebase -- Preceeds second stack wa, because wa can act as a medial wovel and interfere this lookup
+
+lookup haang_ya_sub {
+# long ya
+#sub @belowbase uni1A63 uni1A3F.blw' by uni1A3F.blw.alt2; # ᩕ  ᩣ  ᩠ᨿ
+sub [@belowbase @postbase @haang] uni1A3F.blw' by uni1A3F.blw.alt2;
+sub [@belowbase @postbase @haang] @abovebase uni1A3F.blw' by uni1A3F.blw.alt2;
+sub [@belowbase @postbase @haang] @abovebase @abovebase uni1A3F.blw' by uni1A3F.blw.alt2;
+sub [@belowbase @postbase @haang] @abovebase @abovebase @abovebase uni1A3F.blw' by uni1A3F.blw.alt2;
+} haang_ya_sub;
+
+lookup haang_ba_sub {
+#long ba, in the same manner as long ya
+#bo baimai
+sub [@belowbase @postbase @haang] uni1A37.blw' by uni1A37.blw.alt;
+sub [@belowbase @postbase @haang] @abovebase uni1A37.blw' by uni1A37.blw.alt;
+sub [@belowbase @postbase @haang] @abovebase @abovebase uni1A37.blw' by uni1A37.blw.alt;
+sub [@belowbase @postbase @haang] @abovebase @abovebase @abovebase uni1A37.blw' by uni1A37.blw.alt;
+# por pla
+sub [@belowbase @postbase @haang] uni1A38.blw' by uni1A37.blw.alt;
+sub [@belowbase @postbase @haang] @abovebase uni1A38.blw' by uni1A37.blw.alt;
+sub [@belowbase @postbase @haang] @abovebase @abovebase uni1A38.blw' by uni1A37.blw.alt;
+sub [@belowbase @postbase @haang] @abovebase @abovebase @abovebase uni1A38.blw' by uni1A37.blw.alt;
+} haang_ba_sub;
+
+
+
+
+} calt ; 
+
+
+
+
+
