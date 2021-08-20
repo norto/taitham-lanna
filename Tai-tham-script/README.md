@@ -1,9 +1,10 @@
 
-## NS Tahlom 3.024.1 (Regular)
+## NS Tahlom 3.024.2 (Regular)
 
 * Improvement on the Opentype features to be more conforming with Unicode input order rules.
 * Some redesign for better legibility.
 * Documentation explaining the "input order" and explanation of each Opentype features used.
+* GSUB table explained.
 * Sample Tai Tham text.
   
   
