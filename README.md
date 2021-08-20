@@ -14,7 +14,7 @@ Well, as a native of this language and the script, I feel obliged a bit to prese
 I name the font as **"Tahlom"** following the name of an anmaranth flower in Lanna language which has a round shape similar to the shape of the . The world *"Ta-lom"* or *"Tom-lom"* also mean "round" or "spherical" in Lanna langauge.
 
 
-<img align="center" width="563" alt="NS Tahlom glyphs" src="https://user-images.githubusercontent.com/28560445/130200606-39460bd4-171c-4487-809d-1b886efc6e09.png">
+<p align="center"><img width="563" alt="NS Tahlom glyphs" src="https://user-images.githubusercontent.com/28560445/130200606-39460bd4-171c-4487-809d-1b886efc6e09.png"></p>
 
 
 ## Fakkham script
