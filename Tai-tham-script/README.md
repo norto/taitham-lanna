@@ -9,5 +9,5 @@
 <img width="650" src="https://github.com/norto/taitham-lanna/blob/Talom-4/images/Talom4211%20text%201.png">
 
 
-<img width="873" alt="Tai Tham sample 1" src="https://user-images.githubusercontent.com/28560445/130195140-27670aeb-b128-4c93-be73-a4b4dd058b3d.png">
+<img width="650" alt="Tai Tham text sample" src="https://github.com/norto/taitham-lanna/blob/Talom-4/images/Talom4211%20text%203.png">
 
