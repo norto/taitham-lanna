@@ -13,8 +13,9 @@ Well, as a native of this language and the script, I feel obliged a bit to prese
 
 I name the font as **"Tahlom"** following the name of an anmaranth flower in Lanna language which has a round shape similar to the shape of the . The world *"Ta-lom"* or *"Tom-lom"* also mean "round" or "spherical" in Lanna langauge.
 
+<p align="center"><img width="425" alt="Screenshot 2025-05-01 at 01 51 12" src="https://github.com/user-attachments/assets/15002a24-dfe1-41aa-8c43-d1161ccab29a" /></p>
 
-<p align="center"><img width="600" alt="NS Tahlom glyphs" src="https://github.com/norto/taitham-lanna/blob/Talom-4/images/Talom4211%20text%201.png"></p>
+<p align="center"><img width="678" alt="Screenshot 2025-05-01 at 00 13 10" src="https://github.com/user-attachments/assets/28826dc6-f1f6-459a-b295-31f9bdb271d1" /></p>
 
 ## Fakkham script
 During summer 2018, I also create another ancient script used in Lanna which is called "Fakkham script". I name it **"Somphoa"** following the name of a peacock flower in Lanna langauge. The script can be integrated seamlessly with Thai unicode block like a common Thai font. The ligature can be activated by the character 'phinthu' or **0E3A**.
