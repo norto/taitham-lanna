@@ -13,3 +13,20 @@ Right now, the font is in a beta version including the weight and width of Regul
 ในตัวฟอนต์ได้จัดทำอักขระพิเศษทั้งตัวเฟื้องและสระพิเศษหลายตัวที่ไม่มีในอักษรไทยแล้ว เช่น ไม้ก๋ง ไม้ซ้ำ ไม้กอย ยอเฟื้อง ยอ หยาดน้ำ ฯลฯ อักษรบางตัวที่ไม่พบในจารึกโบราณเช่น ฮ ในฟอนต์นี้ก็ได้ประดิษฐ์ขึ้นโดยเทียบเคียงกับอักษรไทยนิเทศ (ซึ่งเป็นอักษรที่เป็นรุ่นลูกของอักษรฝักขามอีกที) ดังนั้นฟอนต์ เอ็นเอส ฝักขามแก้ว นี้ สามารถใช้พิมพ์เพื่อคัดลอกจารึกโบราณก็ได้ หรือจะใช้พิมพ์บทความที่เป็นภาษาปัจจุบันก็ได้ ทั้งไทยกลาง ทั้งล้านนา หรือแม้แต่ลาวบูฮาน (ไทน้อยแบบโบราณ) เอาไปใช้พิมพ์แล้วท่านสามารถอ่านรู้เรื่องแน่นอน
 
 ขณะนี้ ฟอนต์ เอ็นเอส ฝักขามแก้ว ได้จัดทำมา 4 แบบ คือ ธรรมดา, ตัวเอน (ตัวเนิ้ง), ตัวแคบ (ตัวแลบ), และ (กำลังจะมี) ตัวหนา (ตัวตุ้ย)
+
+---
+
+### NS Fakkham Kaew 1.100 Regular ###
+<p align="center"><img width="700" src=https://github.com/norto/taitham-lanna/blob/b349953c547605ce6ba6fc144adb07584d9e2cf3/images/NS%20Fakkham%20Kaew%201.100%20Regular.png /></p>
+
+---
+
+### NS Fakkham Kaew 1.100 Italic ###
+
+<p align="center"><img width="700" src=https://github.com/norto/taitham-lanna/blob/b349953c547605ce6ba6fc144adb07584d9e2cf3/images/NS%20Fakkham%20Kaew%201.100%20Italic.png /></p>
+
+---
+
+### NS Fakkham Kaew 1.100 Narrow ###
+
+<p align="center"><img width="700" src=https://github.com/norto/taitham-lanna/blob/b349953c547605ce6ba6fc144adb07584d9e2cf3/images/NS%20Fakkham%20Kaew%201.100%20Narrow.png /></p>
