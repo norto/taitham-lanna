@@ -24,4 +24,25 @@ The script itself is based on Sukhothai version of Thai script.
 Thus, we can say that Fakkahm script is a Lanna version of Thai script.
 Whilst being so similar to modern Thai script, spelling system of Fakkham script preserves lots of ancient feature of Thai script.
 
+---
+
+### NS Fakkham Kaew 1.100 Regular ###
+<p align="center"><img width="700" src=https://github.com/norto/taitham-lanna/blob/b349953c547605ce6ba6fc144adb07584d9e2cf3/images/NS%20Fakkham%20Kaew%201.100%20Regular.png /></p>
+
+---
+
+### NS Fakkham Kaew 1.100 Italic ###
+
+<p align="center"><img width="700" src=https://github.com/norto/taitham-lanna/blob/b349953c547605ce6ba6fc144adb07584d9e2cf3/images/NS%20Fakkham%20Kaew%201.100%20Italic.png /></p>
+
+---
+
+### NS Fakkham Kaew 1.100 Narrow ###
+
+<p align="center"><img width="700" src=https://github.com/norto/taitham-lanna/blob/b349953c547605ce6ba6fc144adb07584d9e2cf3/images/NS%20Fakkham%20Kaew%201.100%20Narrow.png /></p>
+
+---
+
+### NS Somphoa ###
+The older version of Fakkham script.
 <p align="center"><img src="images/Sompoa-1.PNG" width="750"></p>
