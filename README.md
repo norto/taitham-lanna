@@ -18,7 +18,6 @@ I name the font as **"Tahlom"** following the name of an anmaranth flower in Lan
 <p align="center"><img width="678" alt="Screenshot 2025-05-01 at 00 13 10" src="https://github.com/user-attachments/assets/28826dc6-f1f6-459a-b295-31f9bdb271d1" /></p>
 
 ## Fakkham script
-During summer 2018, I also create another ancient script used in Lanna which is called "Fakkham script". I name it **"Somphoa"** following the name of a peacock flower in Lanna langauge. The script can be integrated seamlessly with Thai unicode block like a common Thai font. The ligature can be activated by the character 'phinthu' or **0E3A**.
 
 Fakkham script is the script used alongside with tai tham script in ancient Lanna. 
 The script itself is based on Sukhothai version of Thai script. 
